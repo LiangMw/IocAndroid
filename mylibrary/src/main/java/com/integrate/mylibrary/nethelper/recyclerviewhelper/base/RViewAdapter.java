@@ -23,6 +23,7 @@ public class RViewAdapter<T> extends RecyclerView.Adapter<RViewHolder> {
     private ItemListener<T> itemListener;//item的点击监听
     private List<T> datas;//数据源
 
+
     public void addDatas(List<T> datas) {
         if(datas ==null) {
             return;
@@ -39,8 +40,7 @@ public class RViewAdapter<T> extends RecyclerView.Adapter<RViewHolder> {
         notifyDataSetChanged();
     }
 
-
-    //单样式
+    //多样式
     public RViewAdapter(List<T> datas){
         if(datas == null) {
             this.datas = new ArrayList<>();
@@ -49,7 +49,7 @@ public class RViewAdapter<T> extends RecyclerView.Adapter<RViewHolder> {
         itemStyle = new RViewItemManager<>();
     }
 
-    //多样式
+    //单样式
     public RViewAdapter(List<T> datas, RViewItem<T> item){
         if(datas == null) {
             this.datas = new ArrayList<>();
@@ -70,7 +70,7 @@ public class RViewAdapter<T> extends RecyclerView.Adapter<RViewHolder> {
 
     //是否有多样是的recycleview的Item
     private boolean hasMultiStyle(){
-        return itemStyle.getItemStylesCount()>0;
+        return itemStyle.getItemStylesCount()>1;
     }
 
     //根据不同的类型类创建不同的item的ViewHolder
@@ -83,7 +83,7 @@ public class RViewAdapter<T> extends RecyclerView.Adapter<RViewHolder> {
         if(item.openClick()) {
             setListener(viewHolder);
         }
-        return null;
+        return viewHolder;
     }
 
     private void setListener(final RViewHolder viewHolder) {
@@ -115,15 +115,12 @@ public class RViewAdapter<T> extends RecyclerView.Adapter<RViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RViewHolder holder, int position) {
-
         convert(holder,datas.get(position));
 
     }
 
     private void convert(RViewHolder holder, T t) {
-
         itemStyle.convert(holder,t,holder.getAdapterPosition());
-
     }
 
     @Override

@@ -36,7 +36,7 @@ public class RViewItemManager <T>{
 
     //根据数据源和位置返回某个item类型的ViewType（集合的key）
     public int getItemViewType(T entity,int position){
-        for (int i = styles.size()-1;i>0;i--){//样式倒序循环，防止增删集合
+        for (int i = styles.size()-1;i>=0;i--){//样式倒序循环，防止增删集合
             //比如第1个位置（索引0）拿到的是第一类的条目样式
             RViewItem<T> item = styles.valueAt(i);
             if(item.isItemView(entity,position)) {
@@ -49,7 +49,7 @@ public class RViewItemManager <T>{
 
     public void convert(RViewHolder holder, T t, int position) {
 
-        for (int i= styles.size()-1;i>0;i--){
+        for (int i= styles.size()-1;i>=0;i--){
             RViewItem<T> item = styles.get(i);
             if(item.isItemView(t,position)) {
                 item.convert(holder,t,position);

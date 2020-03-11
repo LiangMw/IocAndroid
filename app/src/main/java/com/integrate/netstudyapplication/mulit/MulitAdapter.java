@@ -1,6 +1,8 @@
 package com.integrate.netstudyapplication.mulit;
 
-import com.integrate.mylibrary.nethelper.recyclerviewhelper.base.RViewAdapter;
+import android.content.Context;
+
+import com.integrate.mylibrary.nethelper.myrecyclerview.base.RViewAdapter;
 import com.integrate.netstudyapplication.bean.UserInfo;
 
 import java.util.List;
@@ -11,11 +13,20 @@ import java.util.List;
  */
 public class MulitAdapter extends RViewAdapter<UserInfo> {
 
-    public MulitAdapter(List<UserInfo> datas) {
+    public MulitAdapter(Context mContext,List<UserInfo> datas) {
         super(datas);
-        addItemStyles(new AItem());
-        addItemStyles(new BItem());
-        addItemStyles(new CItem());
-        addItemStyles(new DItem());
+        addStyle(new AItem(mContext));
+        addStyle(new BItem());
+        addStyle(new CItem());
+        addStyle(new DItem());
+//        addItemStyles(new AItem(mContext));
+//        addItemStyles(new BItem());
+//        addItemStyles(new CItem());
+//        addItemStyles(new DItem());
     }
+
+//    public MulitAdapter(List<UserInfo> datas) {
+//
+//
+//    }
 }

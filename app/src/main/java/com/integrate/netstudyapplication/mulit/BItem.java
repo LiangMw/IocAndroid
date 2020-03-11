@@ -2,8 +2,8 @@ package com.integrate.netstudyapplication.mulit;
 
 import android.widget.TextView;
 
-import com.integrate.mylibrary.nethelper.recyclerviewhelper.holder.RViewHolder;
-import com.integrate.mylibrary.nethelper.recyclerviewhelper.listener.RViewItem;
+import com.integrate.mylibrary.nethelper.myrecyclerview.holder.RViewHolder;
+import com.integrate.mylibrary.nethelper.myrecyclerview.listener.RViewItem;
 import com.integrate.netstudyapplication.R;
 import com.integrate.netstudyapplication.bean.UserInfo;
 
@@ -13,19 +13,34 @@ import com.integrate.netstudyapplication.bean.UserInfo;
  */
 public class BItem implements RViewItem<UserInfo> {
 
+//    @Override
+//    public int getItemLayout() {
+//        return R.layout.layout_bitem;
+//    }
+//
+//    @Override
+//    public boolean openClick() {
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean isItemView(UserInfo entity, int position) {
+//        return entity.getType() == 2;
+//    }
+
     @Override
-    public int getItemLayout() {
+    public int getItemLayoutId() {
         return R.layout.layout_bitem;
     }
 
     @Override
-    public boolean openClick() {
-        return false;
+    public boolean isOpenClick() {
+        return true;
     }
 
     @Override
-    public boolean isItemView(UserInfo entity, int position) {
-        return entity.getType() == 2;
+    public boolean isViewType(UserInfo enterty, int position) {
+        return enterty.getType() == 2;
     }
 
     @Override

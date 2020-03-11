@@ -3,12 +3,39 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     >
+    <TextView
+        android:id="@+id/tv_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Start"
+        android:text="开始"/>
+    <TextView
+        android:id="@+id/tv_click_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="Stop"
+        android:text="停止"/>
+
+    <com.integrate.netstudyapplication.view.GradientDemoView
+        android:id="@+id/gradient_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        app:mode="0"></com.integrate.netstudyapplication.view.GradientDemoView>
+
+    <com.integrate.netstudyapplication.view.PaintViewBasic
+        android:id="@+id/paint_base"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/srl"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.RecyclerView
@@ -19,5 +46,4 @@
 
 
     </android.support.v4.widget.SwipeRefreshLayout>
-
 </LinearLayout>

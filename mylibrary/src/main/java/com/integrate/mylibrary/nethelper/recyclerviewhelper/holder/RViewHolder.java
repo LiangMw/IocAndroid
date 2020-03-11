@@ -17,6 +17,7 @@ public class RViewHolder extends RecyclerView.ViewHolder {
     private SparseArray<View> mViews;//View控件集合
     private View mConverView;
 
+
     private RViewHolder(@NonNull View itemView) {
         super(itemView);
         mConverView  = itemView;
